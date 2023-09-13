@@ -16,6 +16,7 @@ public class Main {
             System.out.println("Welcome to THE SUPERHERO UNIVERSE");
             System.out.println("Press 1 to create superhero");
             System.out.println("Press 2 to show superheroes");
+            System.out.println("Press 3 to Find Superhero");
             System.out.println("Press 9 to end");
             opretEllerAfslut = scanner.nextInt();
             scanner.nextLine();
@@ -52,6 +53,12 @@ public class Main {
                     System.out.println("Strength: " + superhero.getStrength());
                     System.out.println();
                 }
+
+
+            } else if (opretEllerAfslut == 3) {
+                System.out.println("Search for superhero:");
+                String search = scanner.nextLine();
+                System.out.println(m.controller.findSuperhero(search));
             }
         } while (opretEllerAfslut != 9);
         scanner.close();

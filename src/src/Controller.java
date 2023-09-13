@@ -15,4 +15,10 @@ public class Controller {
     public ArrayList<Superhero> getDatabase() {
         return db.getDatabase();
     }
+    /*public ArrayList<Superhero> findSuperhero(String search){
+        return db.findSuperhero(search);
+    }*/
+    public Superhero findSuperhero(String search){
+        return db.findSuperhero(search);
+    }
 }
