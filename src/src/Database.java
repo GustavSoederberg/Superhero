@@ -15,23 +15,24 @@ public class Database {
         return database;
     }
 
-    /*public ArrayList<Superhero> findSuperhero(String search){
+    public ArrayList<Superhero> findAllSuperhero(String search) {
         ArrayList<Superhero> searchResult = new ArrayList<Superhero>();
-        for (Superhero s: database) {
-            if(s.getName().contains(search)){
+        for (Superhero s : database) {
+            if (s.getName().contains(search)) {
                 searchResult.add(s);
 
             }
 
         }
         if (!searchResult.isEmpty())
-            for (Superhero s: searchResult) {
+            for (Superhero s : searchResult) {
                 System.out.println(s);
             }
         else {
             System.out.println("No superheroes in the list with that name");
         }
-        return searchResult;*/
+        return searchResult;
+    }
 
     public Superhero findSuperhero(String search) {
         for (Superhero s : database) {
@@ -43,4 +44,6 @@ public class Database {
         System.out.println("No superheroes in the list with that name");
         return null;
     }
+
+
 }
