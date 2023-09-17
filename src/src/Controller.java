@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
-    private Database db = new Database();
+    private Database db;
 
 
     public Controller(Database db) {
@@ -13,18 +14,15 @@ public class Controller {
         db.addSuperhero(superheroName, realName, superpower, creationYear, hasSuperpowers, strength);
         System.out.println("Superhero added to the database.");
     }
-
-    public ArrayList<Superhero> getDatabase() {
-        return db.getDatabase();
-    }
     public ArrayList<Superhero> findAllSuperhero(String search) {
         return db.findAllSuperhero(search);
     }
-    public Superhero findSuperhero(String search){
+
+    public Superhero findSuperhero(String search) {
         return db.findSuperhero(search);
     }
 
-    public void createSuperhero(){
+    public void createSuperhero() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter superhero details:");
 
@@ -37,19 +35,53 @@ public class Controller {
         System.out.print("Superpower: ");
         String superpower = scanner.nextLine();
 
-        System.out.print("Creation Year: ");
-        int creationYear = scanner.nextInt();
+        int creationYear = 0;
+        while (true) {
+            try {
+                System.out.print("Creation Year: ");
+                creationYear = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid year.");
+                scanner.nextLine();
+            }
+        }
 
-        System.out.print("Is the superhero human? (true/false): ");
-        boolean isHuman = scanner.nextBoolean();
-
-        System.out.print("Strength: ");
-        int strength = scanner.nextInt();
+        boolean isHuman = false;
+        while (true) {
+            try {
+                System.out.print("Is the superhero human? (y/n): ");
+                char yesOrNo = scanner.next().charAt(0);
+                if (yesOrNo == 'y' || yesOrNo == 'Y') {
+                    isHuman = true;
+                    break; // Exit the loop if the input is 'y' or 'Y'
+                } else if (yesOrNo == 'n' || yesOrNo == 'N') {
+                    isHuman = false;
+                    break; // Exit the loop if the input is 'n' or 'N'
+                } else {
+                    System.out.println("Invalid input. Please enter 'y' or 'n'.");
+                }
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("Invalid input. Please enter 'y' or 'n'.");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
+        int strength = 0;
+        while(true) {
+            try {
+                System.out.print("Strength: ");
+                strength = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a Strength.");
+                scanner.nextLine();
+            }
+        }
 
         db.addSuperhero(superheroName, realName, superpower, creationYear, isHuman, strength);
     }
 
-    public void showSuperheroes(){
+    public void showSuperheroes() {
         ArrayList<Superhero> superheroes = db.getDatabase();
         for (Superhero superhero : superheroes) {
             System.out.println("Superhero Name: " + superhero.getName());
@@ -66,10 +98,12 @@ public class Controller {
         }
 
     }
-    public void editSuperhero(Superhero s){
+
+    public void editSuperhero(Superhero s) {
         db.editSuperhero(s);
 
     }
+
     public void editSuperheroDetails() {
         Scanner scanner = new Scanner(System.in);
 
@@ -82,7 +116,6 @@ public class Controller {
         int choice = scanner.nextInt();
 
         if (choice > 0 && choice <= db.size()) {
-            // Get the selected superhero
             Superhero selectedSuperhero = db.get(choice - 1);
 
             editSuperhero(selectedSuperhero);
@@ -92,14 +125,14 @@ public class Controller {
 
     }
 
-    public void printStartMessage(){
+    public void printStartMessage() {
         System.out.println("""
-                    Press 1 to create superhero
-                    Press 2 to show superheroes
-                    Press 3 to find first Superhero
-                    Press 4 to get list of superheroes of search criteria
-                    Press 5 to edit superhero
-                    Press 9 to end
-                    """);
+                Press 1 to create superhero
+                Press 2 to show superheroes
+                Press 3 to find first Superhero
+                Press 4 to get list of superheroes of search criteria
+                Press 5 to edit superhero
+                Press 9 to end
+                """);
     }
 }

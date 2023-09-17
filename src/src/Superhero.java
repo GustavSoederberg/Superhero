@@ -14,21 +14,27 @@ public class Superhero {
         this.isHuman = isHuman;
         this.strength = strength;
     }
+
     public String getName() {
         return name;
     }
+
     public String getRealName() {
         return realName;
     }
+
     public String getSuperPower() {
         return superPower;
     }
+
     public int getYearCreated() {
         return yearCreated;
     }
+
     public boolean isHuman() {
         return isHuman;
     }
+
     public int getStrength() {
         return strength;
     }
@@ -61,7 +67,7 @@ public class Superhero {
     public String toString() {
         return "Superhero [" +
                 "Name: " + name +
-                ", Real name: " + realName  +
+                ", Real name: " + realName +
                 ", Superpower: " + superPower +
                 ", Year created: " + yearCreated +
                 ", Is human: " + isHuman +
