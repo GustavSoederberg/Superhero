@@ -104,10 +104,10 @@ public class Database {
                         String input = scanner.next().trim().toLowerCase();
 
                         if (input.equals("y")) {
-                            s.isHuman(true);
+                            s.SetIsHuman(true);
                             validInput = true;
                         } else if (input.equals("n")) {
-                            s.isHuman(false);
+                            s.SetIsHuman(false);
                             validInput = true;
                         } else {
                             System.out.println("Invalid choice. Please enter 'y' or 'n'.");
