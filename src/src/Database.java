@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Database {
-    ArrayList<Superhero> database = new ArrayList<>();
+    ArrayList<Superhero> database;
 
     public Database() {
         database = new ArrayList<>();
@@ -13,6 +13,20 @@ public class Database {
         Superhero superhero = new Superhero(superheroName, realName, superpower, creationYear, isHuman, strength);
         database.add(superhero);
         System.out.println("Superhero added to the database.");
+    }
+
+    public void addDataSuperheroes(){
+        Superhero superhero = new Superhero("Batman", "Bruce Wayne", "Money", 1939, true, 98);
+        Superhero superhero1 = new Superhero("Superman", "Clark Kent", "Flying, Laser eyes, superhuman strength", 1941, false, 99);
+        Superhero superhero2 = new Superhero("Batgirl", "Anne Davis", "Fighting, tech", 1963, true, 93);
+        Superhero superhero3 = new Superhero("The Flash", "Barry", "Speed", 1966, true, 99);
+        Superhero superhero4 = new Superhero("Wonder Woman", "Diana", "Strength, power", 1945, false, 95);
+        database.add(superhero);
+        database.add(superhero1);
+        database.add(superhero2);
+        database.add(superhero3);
+        database.add(superhero4);
+
     }
 
     public ArrayList<Superhero> getDatabase() {
@@ -145,6 +159,12 @@ public class Database {
             System.out.println("Index out of bounds: " + index);
             return null;
         }
+    }
+
+    public void removeSuperhero(int index){
+        System.out.println(database);
+        database.remove(get(index));
+
     }
 
 

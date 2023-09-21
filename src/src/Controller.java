@@ -54,16 +54,16 @@ public class Controller {
                 char yesOrNo = scanner.next().charAt(0);
                 if (yesOrNo == 'y' || yesOrNo == 'Y') {
                     isHuman = true;
-                    break; // Exit the loop if the input is 'y' or 'Y'
+                    break;
                 } else if (yesOrNo == 'n' || yesOrNo == 'N') {
                     isHuman = false;
-                    break; // Exit the loop if the input is 'n' or 'N'
+                    break;
                 } else {
                     System.out.println("Invalid input. Please enter 'y' or 'n'.");
                 }
             } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("Invalid input. Please enter 'y' or 'n'.");
-                scanner.nextLine(); // Consume the invalid input
+                scanner.nextLine();
             }
         }
         int strength = 0;
@@ -132,7 +132,11 @@ public class Controller {
                 Press 3 to find first Superhero
                 Press 4 to get list of superheroes of search criteria
                 Press 5 to edit superhero
+                Press 6 to remove superhero from list
                 Press 9 to end
                 """);
+    }
+    public void removeSuperhero(int index){
+        db.removeSuperhero(index);
     }
 }

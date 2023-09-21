@@ -35,8 +35,17 @@ public class UserInterface {
                     case 5:
                         ui.controller.editSuperheroDetails();
                         break;
+                    case 6:
+                        System.out.println("Select a superhero to remove:");
+                        for (int i = 0; i < database.size(); i++) {
+                            System.out.println(i + 1 + ". " + database.get(i).getName());
+                        }
+                        int searchIndex = scanner.nextInt() - 1;
+                        ui.controller.removeSuperhero(searchIndex);
+                        break;
                     case 9:
                         System.out.println("Program ended");
+                        break;
                     default:
                         System.out.println("Try again with the values stated under: ");
                         break;
