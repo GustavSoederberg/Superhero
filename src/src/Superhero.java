@@ -55,7 +55,7 @@ public class Superhero {
         this.yearCreated = yearCreated;
     }
 
-    public void SetIsHuman(boolean isHuman) {
+    public void setIsHuman(boolean isHuman) {
         this.isHuman = isHuman;
     }
 

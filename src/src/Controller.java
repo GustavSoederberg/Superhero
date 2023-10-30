@@ -14,6 +14,7 @@ public class Controller {
         db.addSuperhero(superheroName, realName, superpower, creationYear, hasSuperpowers, strength);
         System.out.println("Superhero added to the database.");
     }
+
     public ArrayList<Superhero> findAllSuperhero(String search) {
         return db.findAllSuperhero(search);
     }
@@ -35,7 +36,7 @@ public class Controller {
         System.out.print("Superpower: ");
         String superpower = scanner.nextLine();
 
-        int creationYear = 0;
+        int creationYear;
         while (true) {
             try {
                 System.out.print("Creation Year: ");
@@ -47,7 +48,7 @@ public class Controller {
             }
         }
 
-        boolean isHuman = false;
+        boolean isHuman;
         while (true) {
             try {
                 System.out.print("Is the superhero human? (y/n): ");
@@ -66,8 +67,8 @@ public class Controller {
                 scanner.nextLine();
             }
         }
-        int strength = 0;
-        while(true) {
+        int strength;
+        while (true) {
             try {
                 System.out.print("Strength: ");
                 strength = scanner.nextInt();
@@ -88,9 +89,9 @@ public class Controller {
             System.out.println("Real Name: " + superhero.getRealName());
             System.out.println("Superpower: " + superhero.getSuperPower());
             System.out.println("Creation Year: " + superhero.getYearCreated());
-            if (superhero.isHuman() == true) {
+            if (superhero.isHuman()) {
                 System.out.println("Is human: Yes");
-            } else if (superhero.isHuman() == false) {
+            } else{
                 System.out.println("Is human: No");
             }
             System.out.println("Strength: " + superhero.getStrength());
@@ -136,7 +137,8 @@ public class Controller {
                 Press 9 to end
                 """);
     }
-    public void removeSuperhero(int index){
+
+    public void removeSuperhero(int index) {
         db.removeSuperhero(index);
     }
 }

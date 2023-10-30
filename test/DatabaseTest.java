@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ class DatabaseTest {
         int actualResult = database.size();
         int expectedResult = 6;
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
 
     }
 
@@ -33,7 +34,7 @@ class DatabaseTest {
         int actualResult = searchResult.size();
         int expectedResult = 2;
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @org.junit.jupiter.api.Test
@@ -42,7 +43,7 @@ class DatabaseTest {
         int actualResult = searchResult.size();
         int expectedResult = 1;
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @org.junit.jupiter.api.Test
@@ -50,7 +51,7 @@ class DatabaseTest {
         String actualResult = database.findSuperhero("Bat").getName();
         String expectedResult = "Batman";
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @org.junit.jupiter.api.Test
@@ -71,10 +72,10 @@ class DatabaseTest {
 
     @org.junit.jupiter.api.Test
     void size() {
-       int actualResult = database.size();
-       int expectedResult = 5;
+        int actualResult = database.size();
+        int expectedResult = 5;
 
-       Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @org.junit.jupiter.api.Test
@@ -83,7 +84,7 @@ class DatabaseTest {
         String actualResult = superheroTest.getName();
         String expectedResult = "Batman";
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @Test
@@ -92,7 +93,7 @@ class DatabaseTest {
         int actualResult = database.size();
         int expectedResult = 4;
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
 
     }
 }
