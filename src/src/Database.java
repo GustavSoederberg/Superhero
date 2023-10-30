@@ -11,7 +11,6 @@ public class Database {
     public void addSuperhero(String superheroName, String realName, String superpower, int creationYear, boolean isHuman, int strength) {
         Superhero superhero = new Superhero(superheroName, realName, superpower, creationYear, isHuman, strength);
         database.add(superhero);
-        System.out.println("Superhero added to the database.");
     }
 
     public void addDataSuperheroes() {
@@ -41,14 +40,10 @@ public class Database {
             }
 
         }
-        if (!searchResult.isEmpty())
-            for (Superhero s : searchResult) {
-                System.out.println(s);
-            }
-        else {
-            System.out.println("No superheroes in the list with that name");
-        }
-        return searchResult;
+        if (searchResult.isEmpty()) {
+            return null;
+        } else
+            return searchResult;
     }
 
     public Superhero findSuperhero(String search) {
@@ -63,81 +58,7 @@ public class Database {
     }
 
     public void editSuperhero(Superhero s) {
-        int editOrEnd;
-        do {
-            System.out.println("""
-                    What do you want to edit?
-                    1. Superhero name:
-                    2. Real name:
-                    3. Superpower:
-                    4. Creation year:
-                    5. Is human:
-                    6. Strength:
-                    7. End editing:
-                    """);
-            System.out.println(s);
-            Scanner scanner = new Scanner(System.in);
-            editOrEnd = scanner.nextInt();
-            scanner.nextLine();
-            switch (editOrEnd) {
-                case 1 -> {
-                    System.out.println("Old superhero name: " + s.getName());
-                    System.out.println("Set new superheroname: ");
-                    String name = scanner.nextLine();
-                    s.setName(name);
-                    System.out.println("New name set to: " + s.getName());
-                }
-                case 2 -> {
-                    System.out.println("Old name: " + s.getRealName());
-                    System.out.println("set new real name: ");
-                    String realName = scanner.nextLine();
-                    s.setRealName(realName);
-                    System.out.println("New real name set to: " + s.getRealName());
-                }
-                case 3 -> {
-                    System.out.println("Old superpower: " + s.getSuperPower());
-                    System.out.println("set new superpower: ");
-                    String superPower = scanner.nextLine();
-                    s.setSuperPower(superPower);
-                    System.out.println("New superpower set to: " + s.getSuperPower());
-                }
-                case 4 -> {
-                    System.out.println("Old creation year: " + s.getYearCreated());
-                    System.out.println("New creation year");
-                    int creationYear = 0;
-                    s.setYearCreated(creationYear);
-                    System.out.println("New creation year set to: " + s.getYearCreated());
-                }
-                case 5 -> {
-                    boolean validInput = false;
-                    while (!validInput) {
-                        System.out.println("Is superhero human: " + s.isHuman());
-                        System.out.print("Set superhero as human? [y/n]: ");
-                        String input = scanner.next().trim().toLowerCase();
 
-                        if (input.equals("y")) {
-                            s.setIsHuman(true);
-                            validInput = true;
-                        } else if (input.equals("n")) {
-                            s.setIsHuman(false);
-                            validInput = true;
-                        } else {
-                            System.out.println("Invalid choice. Please enter 'y' or 'n'.");
-                        }
-                    }
-                    System.out.println("Updated superhero is human: " + s.isHuman());
-                }
-                case 6 -> {
-                    System.out.println("Old Strength: " + s.getStrength());
-                    System.out.println("set new Strength: ");
-                    int strength = scanner.nextInt();
-                    s.setStrength(strength);
-                    System.out.println("New strength set to: " + s.getStrength());
-                }
-                case 7 -> System.out.println("Editing ended.");
-                default -> System.out.println("Invalid option. Please try again.");
-            }
-        } while (editOrEnd != 7);
     }
 
     public int size() {
@@ -148,13 +69,11 @@ public class Database {
         if (index >= 0 && index < database.size()) {
             return database.get(index);
         } else {
-            System.out.println("Index out of bounds: " + index);
             return null;
         }
     }
 
     public void removeSuperhero(int index) {
-        System.out.println(database);
         database.remove(get(index));
 
     }
