@@ -3,11 +3,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
-    private Database db;
+    private Database db = new Database();
 
 
-    public Controller(Database db) {
-        this.db = db;
+    public Controller() {
     }
 
     public ArrayList<Superhero> findAllSuperhero(String search) {
@@ -30,10 +29,15 @@ public class Controller {
         return db.size();
     }
 
-    public Superhero get(int index) {
-        return get(index);
+
+
+    public String getIndexedSuperheroName(int index){
+        return db.get(index).getName();
     }
 
+    public Superhero get(int index){
+        return db.get(index);
+    }
 
     public void removeSuperhero(int index) {
         db.removeSuperhero(index);

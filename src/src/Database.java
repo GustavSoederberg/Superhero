@@ -73,6 +73,7 @@ public class Database {
         }
     }
 
+
     public void removeSuperhero(int index) {
         database.remove(get(index));
 

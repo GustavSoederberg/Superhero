@@ -6,9 +6,7 @@ public class UserInterface {
     private Controller controller;
 
     public void startProgram() {
-        UserInterface ui = new UserInterface();
-        Database database = new Database();
-        Controller controller = new Controller(database);
+        Controller controller = new Controller();
         Scanner scanner = new Scanner(System.in);
         int isRunning = -1;
         do {
@@ -113,12 +111,12 @@ public class UserInterface {
                     case 5 -> ui.controller.editSuperheroDetails();
                     case 6 -> {
                         System.out.println("Select a superhero to remove:");
-                        for (int i = 0; i < database.size(); i++) {
-                            System.out.println(i + 1 + ". " + database.get(i).getName());
-                        }
+                        for (int i = 0; i < controller.size(); i++) {
+                            System.out.println(i + 1 + ". " + controller.getIndexedSuperheroName(i));
+                        } //TODO database skal ændres, skal igennem controller først
                         int searchIndex = scanner.nextInt() - 1;
                         controller.removeSuperhero(searchIndex);
-                        System.out.println(database);
+                        System.out.println(controller.getDatabase());
                     }
                     case 9 -> System.out.println("Program ended");
                     default -> System.out.println("Try again with the values stated under: ");
