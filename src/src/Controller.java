@@ -9,6 +9,10 @@ public class Controller {
     public Controller() {
     }
 
+    public void addDataSuperheroes(){
+        db.addDataSuperheroes();
+    }
+
     public ArrayList<Superhero> findAllSuperhero(String search) {
         return db.findAllSuperhero(search);
     }
@@ -37,6 +41,10 @@ public class Controller {
 
     public Superhero get(int index){
         return db.get(index);
+    }
+
+    public void sortSuperheroes(int choice){
+        db.sortSuperheroes(choice);
     }
 
     public void removeSuperhero(int index) {

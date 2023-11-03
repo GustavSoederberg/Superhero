@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Database {
@@ -10,6 +11,10 @@ public class Database {
 
     public void addSuperhero(String superheroName, String realName, String superpower, int creationYear, boolean isHuman, int strength) {
         Superhero superhero = new Superhero(superheroName, realName, superpower, creationYear, isHuman, strength);
+        database.add(superhero);
+    }
+
+    public void addSuperhero2(Superhero superhero){
         database.add(superhero);
     }
 
@@ -76,6 +81,38 @@ public class Database {
 
     public void removeSuperhero(int index) {
         database.remove(get(index));
+
+    }
+
+    public void sortSuperheroes(int choice){
+        new SuperheroNameComparator();
+        switch (choice) {
+            case 1 -> {
+                Collections.sort(database, new SuperheroNameComparator());
+            }
+            case 2 -> {
+                Collections.sort(database, new RealNameComparator());
+            }
+            case 3 -> {
+                Collections.sort(database, new SuperPowerComparator());
+            }
+
+            case 4 -> {
+                Collections.sort(database, new YearCreatedComparator());
+            }
+
+            case 5 -> {
+                Collections.sort(database, new IsHumanComparator());
+            }
+
+            case 6 -> {
+                Collections.sort(database, new StrengthComparator());
+            }
+
+            default -> {}
+        }
+
+
 
     }
 

@@ -63,6 +63,10 @@ public class Superhero {
         this.strength = strength;
     }
 
+    public String toCSVString(){
+        return name + ";" + realName + ";" + superPower + ";" + yearCreated + ";" + isHuman + ";" + strength;
+    }
+
     @Override
     public String toString() {
         return "Superhero [" +

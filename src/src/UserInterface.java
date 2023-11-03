@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class UserInterface {
         Controller controller = new Controller();
         Scanner scanner = new Scanner(System.in);
         int isRunning = -1;
+        FileHandler fileHandler = new FileHandler();
         do {
             ui.controller.printStartMessage();
             try {
