@@ -1,3 +1,5 @@
+package domain;
+
 public class Superhero {
     private String name;
     private String realName;
@@ -69,7 +71,7 @@ public class Superhero {
 
     @Override
     public String toString() {
-        return "Superhero [" +
+        return "domain.Superhero [" +
                 "Name: " + name +
                 ", Real name: " + realName +
                 ", Superpower: " + superPower +

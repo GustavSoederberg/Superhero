@@ -1,3 +1,7 @@
+package data;
+
+import domain.Superhero;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

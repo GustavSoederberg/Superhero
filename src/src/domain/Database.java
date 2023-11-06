@@ -1,6 +1,10 @@
+package domain;
+
+import domain.comparator.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
+import java.util.Comparator;
 
 public class Database {
     private ArrayList<Superhero> database;
@@ -14,7 +18,7 @@ public class Database {
         database.add(superhero);
     }
 
-    public void addSuperhero2(Superhero superhero){
+    public void addSuperhero2(Superhero superhero) {
         database.add(superhero);
     }
 
@@ -57,8 +61,6 @@ public class Database {
                 return s;
             }
         }
-
-        System.out.println("No superheroes in the list with that name");
         return null;
     }
 
@@ -84,17 +86,25 @@ public class Database {
 
     }
 
-    public void sortSuperheroes(int choice){
+    public void sortSuperheroes(int choice, int choice2){
         new SuperheroNameComparator();
+        Comparator comparator2 = null;
+        Comparator comparator1 = null;
+        if (choice == 1) {
+            comparator1 = new SuperheroNameComparator();
+        }
+        if (choice2 == 2) {
+            comparator2 = new RealNameComparator();
+        }
         switch (choice) {
             case 1 -> {
-                Collections.sort(database, new SuperheroNameComparator());
+                comparator1 = new SuperheroNameComparator();
             }
             case 2 -> {
-                Collections.sort(database, new RealNameComparator());
+                comparator1 = new RealNameComparator();
             }
             case 3 -> {
-                Collections.sort(database, new SuperPowerComparator());
+                comparator1 = new SuperPowerComparator();
             }
 
             case 4 -> {
@@ -106,15 +116,42 @@ public class Database {
             }
 
             case 6 -> {
-                Collections.sort(database, new StrengthComparator());
+                comparator1 = new StrengthComparator();
             }
 
-            default -> {}
+            default -> {
+            }
         }
+        switch (choice2) {
+            case 1 -> {
+                comparator2 = new SuperheroNameComparator();
+            }
+            case 2 -> {
+                comparator2 = new RealNameComparator();
+            }
+            case 3 -> {
+                comparator2 = new SuperPowerComparator();
+            }
 
+            case 4 -> {
+                comparator2 = new YearCreatedComparator();
+            }
 
+            case 5 -> {
+                comparator2 = new IsHumanComparator();
+            }
 
+            case 6 -> {
+                comparator2 = new StrengthComparator();
+            }
+
+            default -> {
+            }
+        }
+        Collections.sort(database, comparator1.thenComparing(comparator2));
     }
 
+
+}
 
 }

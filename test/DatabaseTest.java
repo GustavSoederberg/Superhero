@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 
+import domain.Database;
+import domain.Superhero;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

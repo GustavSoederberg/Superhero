@@ -1,3 +1,7 @@
+package domain.comparator;
+
+import domain.Superhero;
+
 import java.util.Comparator;
 
 public class YearCreatedComparator implements Comparator <Superhero> {

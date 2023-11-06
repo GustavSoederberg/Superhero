@@ -1,10 +1,13 @@
+package domain;
+
+import data.FileHandler;
+
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 public class Controller {
     private Database db = new Database();
-
+    private FileHandler fileHandler = new FileHandler();
 
     public Controller() {
     }
@@ -29,6 +32,14 @@ public class Controller {
         db.addSuperhero(superheroName, realName, superpower, creationYear, isHuman, strength);
     }
 
+    public void saveSuperheroes(ArrayList<Superhero> database){
+        fileHandler.saveSuperheroes(database);
+    }
+
+    public void loadSuperheroes(ArrayList<Superhero> database){
+        fileHandler.loadSuperheros(database);
+    }
+
     public int size() {
         return db.size();
     }
@@ -42,9 +53,8 @@ public class Controller {
     public Superhero get(int index){
         return db.get(index);
     }
-
-    public void sortSuperheroes(int choice){
-        db.sortSuperheroes(choice);
+    public void sortSuperheroes(int choice, int choice2){
+        db.sortSuperheroes(choice, choice2);
     }
 
     public void removeSuperhero(int index) {
