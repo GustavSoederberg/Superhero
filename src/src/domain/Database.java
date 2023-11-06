@@ -108,11 +108,11 @@ public class Database {
             }
 
             case 4 -> {
-                Collections.sort(database, new YearCreatedComparator());
+                comparator1 = new YearCreatedComparator();
             }
 
             case 5 -> {
-                Collections.sort(database, new IsHumanComparator());
+                comparator1 = new IsHumanComparator();
             }
 
             case 6 -> {
@@ -154,4 +154,3 @@ public class Database {
 
 }
 
-}
