@@ -87,15 +87,10 @@ public class Database {
     }
 
     public void sortSuperheroes(int choice, int choice2){
-        new SuperheroNameComparator();
+
         Comparator comparator2 = null;
         Comparator comparator1 = null;
-        if (choice == 1) {
-            comparator1 = new SuperheroNameComparator();
-        }
-        if (choice2 == 2) {
-            comparator2 = new RealNameComparator();
-        }
+
         switch (choice) {
             case 1 -> {
                 comparator1 = new SuperheroNameComparator();
