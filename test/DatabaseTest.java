@@ -55,23 +55,6 @@ class DatabaseTest {
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
-
-    @org.junit.jupiter.api.Test
-    void TestfindSuperhero2() {
-        String actualResult = database.findSuperhero("Bat").getName();
-
-        String expectedFail = "Superman";
-        Assertions.assertEquals(expectedFail, actualResult);
-
-    }
-
-    @org.junit.jupiter.api.Test
-    void editSuperhero() {
-        Superhero superhero = database.get(0);
-        database.editSuperhero(superhero);
-
-    }
-
     @org.junit.jupiter.api.Test
     void size() {
         int actualResult = database.size();
@@ -96,6 +79,5 @@ class DatabaseTest {
         int expectedResult = 4;
 
         Assertions.assertEquals(expectedResult, actualResult);
-
     }
 }
