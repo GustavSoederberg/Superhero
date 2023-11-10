@@ -12,10 +12,6 @@ public class Controller {
     public Controller() {
     }
 
-    public void addDataSuperheroes(){
-        db.addDataSuperheroes();
-    }
-
     public ArrayList<Superhero> findAllSuperhero(String search) {
         return db.findAllSuperhero(search);
     }

@@ -22,15 +22,12 @@ private Controller controller = new Controller();
                         createSuperhero();
                         checkMark = true;
                     }
-                    case 2 -> {
+                    case 2 ->
                        viewSuperhero();
-                    }
-                    case 3 -> {
+                    case 3 ->
                         searchSuperhero();
-                    }
-                    case 4 -> {
-                        getListOfSpecificSuperheroes();
-                    }
+                    case 4 -> getListOfSpecificSuperheroes();
+
                     case 5 -> {
                         edit();
                         checkMark = true;
@@ -47,16 +44,12 @@ private Controller controller = new Controller();
                         }
                         else System.out.println("No changes have been made. Please change or load the list to save");
                     }
-                    case 8 -> {
-                        controller.loadSuperheroes(controller.getDatabase());
-                    }
+                    case 8 -> controller.loadSuperheroes(controller.getDatabase());
                     case 9 -> {
                         sortSuperhero();
                         checkMark = true;
                     }
-                    case 10 -> {
-                        System.out.println("Program ended");
-                    }
+                    case 10 -> System.out.println("Program ended");
                     default -> System.out.println("Try again with the values stated under: ");
                 }
             } catch (InputMismatchException e) {
@@ -158,7 +151,7 @@ private Controller controller = new Controller();
                 switch (editOrEnd) {
                     case 1 -> {
                         System.out.println("Old superhero name: " + selectedSuperhero.getName());
-                        System.out.println("Set new superheroname: ");
+                        System.out.println("Set new superhero name: ");
                         String name = scanner.nextLine();
                         selectedSuperhero.setName(name);
                         System.out.println("New name set to: " + selectedSuperhero.getName());
@@ -210,9 +203,7 @@ private Controller controller = new Controller();
                         selectedSuperhero.setStrength(strength);
                         System.out.println("New strength set to: " + selectedSuperhero.getStrength());
                     }
-                    case 7 -> {
-                        System.out.println("Editing ended.");
-                    }
+                    case 7 -> System.out.println("Editing ended.");
 
                     default -> System.out.println("Invalid option. Please try again.");
                 }
@@ -251,11 +242,11 @@ private Controller controller = new Controller();
         System.out.println("Search for superhero");
         String search = scanner.nextLine();
 
-        ArrayList<Superhero> findAllsuperheroList = controller.findAllSuperhero(search);
+        ArrayList<Superhero> findAllSuperheroList = controller.findAllSuperhero(search);
 
-        if (findAllsuperheroList == null) {
+        if (findAllSuperheroList == null) {
             System.out.println("No superheroes with that name");
-        } else System.out.println(findAllsuperheroList);
+        } else System.out.println(findAllSuperheroList);
     }
 
     private void removeSuperhero(){
@@ -270,7 +261,7 @@ private Controller controller = new Controller();
     private void sortSuperhero(){
         System.out.println("""
                                 What primary attribute do you want to sort the database by?
-                                        1. Superhero name:                                    
+                                        1. Superhero name:
                                         2. Real name:
                                         3. Superpower:
                                         4. Creation year:
@@ -282,7 +273,7 @@ private Controller controller = new Controller();
         System.out.println("""
                                 What secondary attribute do you want to sort the list by?
                                 If you choose the same attribute as before it will only sort by that attribute:
-                                        1. Superhero name:                                    
+                                        1. Superhero name:
                                         2. Real name:
                                         3. Superpower:
                                         4. Creation year:

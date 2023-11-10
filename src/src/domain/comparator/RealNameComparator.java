@@ -2,7 +2,6 @@ package domain.comparator;
 
 import domain.Superhero;
 
-import java.util.Collections;
 import java.util.Comparator;
 
 public class RealNameComparator implements Comparator<Superhero> {

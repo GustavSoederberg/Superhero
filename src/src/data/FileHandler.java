@@ -24,7 +24,7 @@ public class FileHandler {
         }
     }
     public  void  loadSuperheros(ArrayList<Superhero> database){
-        Scanner scanner = null;
+        Scanner scanner;
         try {
             scanner = new Scanner(superheroDatabase);
             while (scanner.hasNextLine()) {

@@ -18,10 +18,6 @@ public class Database {
         database.add(superhero);
     }
 
-    public void addSuperhero2(Superhero superhero) {
-        database.add(superhero);
-    }
-
     public void addDataSuperheroes() {
         Superhero superhero = new Superhero("Batman", "Bruce Wayne", "Money", 1939, true, 98);
         Superhero superhero1 = new Superhero("Superman", "Clark Kent", "Flying, Laser eyes, superhuman strength", 1941, false, 99);
@@ -64,10 +60,6 @@ public class Database {
         return null;
     }
 
-    public void editSuperhero(Superhero s) {
-
-    }
-
     public int size() {
         return database.size();
     }
@@ -92,53 +84,37 @@ public class Database {
         Comparator comparator1 = null;
 
         switch (choice) {
-            case 1 -> {
-                comparator1 = new SuperheroNameComparator();
-            }
-            case 2 -> {
-                comparator1 = new RealNameComparator();
-            }
-            case 3 -> {
-                comparator1 = new SuperPowerComparator();
-            }
+            case 1 -> comparator1 = new SuperheroNameComparator();
 
-            case 4 -> {
-                comparator1 = new YearCreatedComparator();
-            }
+            case 2 -> comparator1 = new RealNameComparator();
 
-            case 5 -> {
-                comparator1 = new IsHumanComparator();
-            }
+            case 3 -> comparator1 = new SuperPowerComparator();
 
-            case 6 -> {
-                comparator1 = new StrengthComparator();
-            }
+
+            case 4 -> comparator1 = new YearCreatedComparator();
+
+
+            case 5 -> comparator1 = new IsHumanComparator();
+
+
+            case 6 -> comparator1 = new StrengthComparator();
 
             default -> {
             }
         }
         switch (choice2) {
-            case 1 -> {
-                comparator2 = new SuperheroNameComparator();
-            }
-            case 2 -> {
-                comparator2 = new RealNameComparator();
-            }
-            case 3 -> {
-                comparator2 = new SuperPowerComparator();
-            }
+            case 1 -> comparator2 = new SuperheroNameComparator();
 
-            case 4 -> {
-                comparator2 = new YearCreatedComparator();
-            }
+            case 2 -> comparator2 = new RealNameComparator();
 
-            case 5 -> {
-                comparator2 = new IsHumanComparator();
-            }
+            case 3 -> comparator2 = new SuperPowerComparator();
 
-            case 6 -> {
-                comparator2 = new StrengthComparator();
-            }
+            case 4 -> comparator2 = new YearCreatedComparator();
+
+            case 5 -> comparator2 = new IsHumanComparator();
+
+            case 6 -> comparator2 = new StrengthComparator();
+
 
             default -> {
             }
