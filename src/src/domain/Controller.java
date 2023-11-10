@@ -28,11 +28,11 @@ public class Controller {
         db.addSuperhero(superheroName, realName, superpower, creationYear, isHuman, strength);
     }
 
-    public void saveSuperheroes(ArrayList<Superhero> database){
+    public void saveSuperheroes(ArrayList<Superhero> database) {
         fileHandler.saveSuperheroes(database);
     }
 
-    public void loadSuperheroes(ArrayList<Superhero> database){
+    public void loadSuperheroes(ArrayList<Superhero> database) {
         fileHandler.loadSuperheros(database);
     }
 
@@ -41,15 +41,15 @@ public class Controller {
     }
 
 
-
-    public String getIndexedSuperheroName(int index){
+    public String getIndexedSuperheroName(int index) {
         return db.get(index).getName();
     }
 
-    public Superhero get(int index){
+    public Superhero get(int index) {
         return db.get(index);
     }
-    public void sortSuperheroes(int choice, int choice2){
+
+    public void sortSuperheroes(int choice, int choice2) {
         db.sortSuperheroes(choice, choice2);
     }
 

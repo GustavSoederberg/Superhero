@@ -15,15 +15,16 @@ public class FileHandler {
         PrintStream output;
         try {
             output = new PrintStream(superheroDatabase);
-          for (Superhero superhero : superheroes) {
-         output.println(superhero.toCSVString());
-        }
+            for (Superhero superhero : superheroes) {
+                output.println(superhero.toCSVString());
+            }
             output.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public  void  loadSuperheros(ArrayList<Superhero> database){
+
+    public void loadSuperheros(ArrayList<Superhero> database) {
         Scanner scanner;
         try {
             scanner = new Scanner(superheroDatabase);
@@ -42,8 +43,7 @@ public class FileHandler {
                     database.add(superhero);
                 }
             }
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

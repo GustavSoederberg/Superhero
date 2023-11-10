@@ -65,7 +65,7 @@ public class Superhero {
         this.strength = strength;
     }
 
-    public String toCSVString(){
+    public String toCSVString() {
         return name + ";" + realName + ";" + superPower + ";" + yearCreated + ";" + isHuman + ";" + strength;
     }
 

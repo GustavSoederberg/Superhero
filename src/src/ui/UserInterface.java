@@ -2,13 +2,15 @@ package ui;
 
 import domain.Controller;
 import domain.Superhero;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
-private Scanner scanner = new Scanner(System.in);
-private Controller controller = new Controller();
+    private Scanner scanner = new Scanner(System.in);
+    private Controller controller = new Controller();
+
     public void startProgram() {
         int input = -1;
         boolean checkMark = false;
@@ -22,10 +24,8 @@ private Controller controller = new Controller();
                         createSuperhero();
                         checkMark = true;
                     }
-                    case 2 ->
-                       viewSuperhero();
-                    case 3 ->
-                        searchSuperhero();
+                    case 2 -> viewSuperhero();
+                    case 3 -> searchSuperhero();
                     case 4 -> getListOfSpecificSuperheroes();
 
                     case 5 -> {
@@ -34,15 +34,14 @@ private Controller controller = new Controller();
                     }
 
                     case 6 -> {
-                       removeSuperhero();
+                        removeSuperhero();
                         checkMark = true;
                     }
-                    case 7 ->{
+                    case 7 -> {
                         if (checkMark && !controller.getDatabase().isEmpty()) {
                             controller.saveSuperheroes(controller.getDatabase());
                             System.out.println("Superheros is saved");
-                        }
-                        else System.out.println("No changes have been made. Please change or load the list to save");
+                        } else System.out.println("No changes have been made. Please change or load the list to save");
                     }
                     case 8 -> controller.loadSuperheroes(controller.getDatabase());
                     case 9 -> {
@@ -61,7 +60,7 @@ private Controller controller = new Controller();
         while (input != 10);
     }
 
-    private void createSuperhero(){
+    private void createSuperhero() {
         System.out.println("Enter superhero details:");
 
         System.out.print("Superhero Name: ");
@@ -121,7 +120,8 @@ private Controller controller = new Controller();
         System.out.println("Superhero added to database");
 
     }
-    private void edit(){
+
+    private void edit() {
         System.out.println("Select a superhero to edit:");
         for (int i = 0; i < controller.size(); i++) {
             System.out.println(i + 1 + ". " + controller.getIndexedSuperheroName(i));
@@ -136,15 +136,15 @@ private Controller controller = new Controller();
             int editOrEnd;
             do {
                 System.out.println("""
-                                        What do you want to edit?
-                                        1. Superhero name:
-                                        2. Real name:
-                                        3. Superpower:
-                                        4. Creation year:
-                                        5. Is human:
-                                        6. Strength:
-                                        7. End editing:
-                                        """);
+                        What do you want to edit?
+                        1. Superhero name:
+                        2. Real name:
+                        3. Superpower:
+                        4. Creation year:
+                        5. Is human:
+                        6. Strength:
+                        7. End editing:
+                        """);
                 System.out.println(selectedSuperhero);
                 editOrEnd = scanner.nextInt();
                 scanner.nextLine();
@@ -212,7 +212,8 @@ private Controller controller = new Controller();
             System.out.println("Invalid choice. Please try again.");
         }
     }
-    private void viewSuperhero(){
+
+    private void viewSuperhero() {
         ArrayList<Superhero> superheroes = controller.getDatabase();
         for (Superhero superhero : superheroes) {
             System.out.println("Superhero Name: " + superhero.getName());
@@ -228,7 +229,8 @@ private Controller controller = new Controller();
             System.out.println();
         }
     }
-    private void searchSuperhero(){
+
+    private void searchSuperhero() {
         System.out.println("Search for superhero:");
         String search = scanner.nextLine();
         Superhero foundSuperhero = controller.findSuperhero(search);
@@ -238,7 +240,7 @@ private Controller controller = new Controller();
 
     }
 
-    private void getListOfSpecificSuperheroes(){
+    private void getListOfSpecificSuperheroes() {
         System.out.println("Search for superhero");
         String search = scanner.nextLine();
 
@@ -249,7 +251,7 @@ private Controller controller = new Controller();
         } else System.out.println(findAllSuperheroList);
     }
 
-    private void removeSuperhero(){
+    private void removeSuperhero() {
         System.out.println("Select a superhero to remove:");
         for (int i = 0; i < controller.size(); i++) {
             System.out.println(i + 1 + ". " + controller.getIndexedSuperheroName(i));
@@ -258,47 +260,49 @@ private Controller controller = new Controller();
         controller.removeSuperhero(searchIndex);
         System.out.println("Superhero is removed");
     }
-    private void sortSuperhero(){
+
+    private void sortSuperhero() {
         System.out.println("""
-                                What primary attribute do you want to sort the database by?
-                                        1. Superhero name:
-                                        2. Real name:
-                                        3. Superpower:
-                                        4. Creation year:
-                                        5. Is human:
-                                        6. Strength:
-                                                                
-                                """);
+                What primary attribute do you want to sort the database by?
+                        1. Superhero name:
+                        2. Real name:
+                        3. Superpower:
+                        4. Creation year:
+                        5. Is human:
+                        6. Strength:
+                                                
+                """);
         int choice = scanner.nextInt();
         System.out.println("""
-                                What secondary attribute do you want to sort the list by?
-                                If you choose the same attribute as before it will only sort by that attribute:
-                                        1. Superhero name:
-                                        2. Real name:
-                                        3. Superpower:
-                                        4. Creation year:
-                                        5. Is human:
-                                        6. Strength:
-                            
-                                """);
+                What secondary attribute do you want to sort the list by?
+                If you choose the same attribute as before it will only sort by that attribute:
+                        1. Superhero name:
+                        2. Real name:
+                        3. Superpower:
+                        4. Creation year:
+                        5. Is human:
+                        6. Strength:
+                                            
+                """);
         int choice2 = scanner.nextInt();
 
 
-        controller.sortSuperheroes(choice,choice2);
+        controller.sortSuperheroes(choice, choice2);
         System.out.println("List sorted");
     }
-    private void printStartMessage(){
+
+    private void printStartMessage() {
         System.out.println("""
-                        Press 1 to create superhero
-                        Press 2 to show superheroes
-                        Press 3 to find first Superhero
-                        Press 4 to get list of superheroes of search criteria
-                        Press 5 to edit superhero
-                        Press 6 to remove superhero from list
-                        Press 7 to save superheroes
-                        Press 8 to load superheroes from database
-                        Press 9 to sort list by attribute
-                        Press 10 to end
-                        """);
+                Press 1 to create superhero
+                Press 2 to show superheroes
+                Press 3 to find first Superhero
+                Press 4 to get list of superheroes of search criteria
+                Press 5 to edit superhero
+                Press 6 to remove superhero from list
+                Press 7 to save superheroes
+                Press 8 to load superheroes from database
+                Press 9 to sort list by attribute
+                Press 10 to end
+                """);
     }
 }

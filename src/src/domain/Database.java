@@ -78,7 +78,7 @@ public class Database {
 
     }
 
-    public void sortSuperheroes(int choice, int choice2){
+    public void sortSuperheroes(int choice, int choice2) {
 
         Comparator comparator2 = null;
         Comparator comparator1 = null;
